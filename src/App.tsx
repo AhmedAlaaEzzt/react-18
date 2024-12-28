@@ -1,7 +1,12 @@
+import { StudentForm } from "./components/StudentForm";
 import "./App.css";
 
 function App() {
-  return <div>React 18</div>;
+  return (
+    <div className="flex justify-center h-screen  items-center">
+      <StudentForm />
+    </div>
+  );
 }
 
 export default App;
