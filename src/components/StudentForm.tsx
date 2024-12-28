@@ -27,7 +27,7 @@ export function StudentForm() {
           value={formData.fullName}
           placeholder="Enter your name"
           onChange={(event) => {
-            setFormData({ ...formData, fullName: event.target.value });
+            setFormData((prev) => ({ ...prev, fullName: event.target.value }));
           }}
         />
       </div>
@@ -40,7 +40,7 @@ export function StudentForm() {
           value={formData.age}
           placeholder="Enter your age"
           onChange={(event) => {
-            setFormData({ ...formData, age: event.target.value });
+            setFormData((prev) => ({ ...prev, age: event.target.value }));
           }}
         />
       </div>
@@ -53,7 +53,7 @@ export function StudentForm() {
           value={formData.email}
           placeholder="Enter your email"
           onChange={(event) => {
-            setFormData({ ...formData, email: event.target.value });
+            setFormData((prev) => ({ ...prev, email: event.target.value }));
           }}
         />
       </div>
