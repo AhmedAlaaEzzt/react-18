@@ -1,23 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const initialFormData = {
+  fullName: "",
+  age: "",
+  email: "",
+};
 
 export function StudentForm() {
-  const [fullName, setFullName] = useState("");
-  const [age, setAge] = useState("");
-  const [email, setEmail] = useState("");
+  const [formData, setFormData] = useState(initialFormData);
+
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   return (
     <div className="p-4 rounded shadow-md inline-flex flex-col gap-2">
-      <span className="font-medium">{`${fullName || "Student"}'s Form`}</span>
+      <span className="font-medium">{`${
+        formData.fullName || "Student"
+      }'s Form`}</span>
 
       <div className="flex flex-col gap-2">
         <label htmlFor="name">Name</label>
         <input
           className="border border-gray-300 rounded-md p-2"
           type="text"
-          value={fullName}
+          value={formData.fullName}
           placeholder="Enter your name"
           onChange={(event) => {
-            setFullName(event.target.value);
+            setFormData({ ...formData, fullName: event.target.value });
           }}
         />
       </div>
@@ -27,10 +37,10 @@ export function StudentForm() {
         <input
           className="border border-gray-300 rounded-md p-2"
           type="text"
-          value={age}
+          value={formData.age}
           placeholder="Enter your age"
           onChange={(event) => {
-            setAge(event.target.value);
+            setFormData({ ...formData, age: event.target.value });
           }}
         />
       </div>
@@ -40,10 +50,10 @@ export function StudentForm() {
         <input
           className="border border-gray-300 rounded-md p-2"
           type="text"
-          value={email}
+          value={formData.email}
           placeholder="Enter your email"
           onChange={(event) => {
-            setEmail(event.target.value);
+            setFormData({ ...formData, email: event.target.value });
           }}
         />
       </div>
@@ -51,9 +61,7 @@ export function StudentForm() {
       <button
         className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-sm transition duration-150 ease-in-out mt-4"
         onClick={() => {
-          setFullName("");
-          setAge("");
-          setEmail("");
+          setFormData(initialFormData);
         }}
       >
         Add Student
