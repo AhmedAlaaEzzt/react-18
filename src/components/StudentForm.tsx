@@ -1,24 +1,20 @@
-import { useRef } from "react";
+import { useState } from "react";
 
 export function StudentForm() {
-  const nameRef = useRef<HTMLInputElement>(null);
+  const [fullName, setFullName] = useState("");
 
   return (
     <div className="p-4 rounded shadow-md inline-flex flex-col gap-2">
-      <span className="font-medium">{`${
-        nameRef.current?.value || "Student"
-      }'s Form`}</span>
+      <span className="font-medium">{`${fullName || "Student"}'s Form`}</span>
 
       <div className="flex flex-col gap-2">
         <label htmlFor="name">Name</label>
         <input
-          ref={nameRef}
           className="border border-gray-300 rounded-md p-2"
           type="text"
-          id="name"
           placeholder="Enter your name"
-          onChange={() => {
-            console.log(nameRef.current?.value);
+          onChange={(event) => {
+            setFullName(event.target.value);
           }}
         />
       </div>
