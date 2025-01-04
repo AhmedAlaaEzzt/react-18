@@ -13,6 +13,13 @@ export function StudentForm() {
     console.log(formData);
   }, [formData]);
 
+  const HandleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
   return (
     <div className="p-4 rounded shadow-md inline-flex flex-col gap-2">
       <span className="font-medium">{`${
@@ -26,9 +33,11 @@ export function StudentForm() {
           type="text"
           value={formData.fullName}
           placeholder="Enter your name"
-          onChange={(event) => {
-            setFormData((prev) => ({ ...prev, fullName: event.target.value }));
-          }}
+          onChange={HandleInputChange}
+          name="fullName"
+          // onChange={(event) => {
+          //   setFormData((prev) => ({ ...prev, fullName: event.target.value }));
+          // }}
         />
       </div>
 
@@ -39,9 +48,11 @@ export function StudentForm() {
           type="text"
           value={formData.age}
           placeholder="Enter your age"
-          onChange={(event) => {
-            setFormData((prev) => ({ ...prev, age: event.target.value }));
-          }}
+          onChange={HandleInputChange}
+          name="age"
+          // onChange={(event) => {
+          //   setFormData((prev) => ({ ...prev, age: event.target.value }));
+          // }}
         />
       </div>
 
@@ -52,9 +63,11 @@ export function StudentForm() {
           type="text"
           value={formData.email}
           placeholder="Enter your email"
-          onChange={(event) => {
-            setFormData((prev) => ({ ...prev, email: event.target.value }));
-          }}
+          onChange={HandleInputChange}
+          name="email"
+          // onChange={(event) => {
+          //   setFormData((prev) => ({ ...prev, email: event.target.value }));
+          // }}
         />
       </div>
 
