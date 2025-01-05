@@ -35,9 +35,6 @@ export function StudentForm() {
           placeholder="Enter your name"
           onChange={HandleInputChange}
           name="fullName"
-          // onChange={(event) => {
-          //   setFormData((prev) => ({ ...prev, fullName: event.target.value }));
-          // }}
         />
       </div>
 
@@ -50,9 +47,6 @@ export function StudentForm() {
           placeholder="Enter your age"
           onChange={HandleInputChange}
           name="age"
-          // onChange={(event) => {
-          //   setFormData((prev) => ({ ...prev, age: event.target.value }));
-          // }}
         />
       </div>
 
@@ -65,9 +59,6 @@ export function StudentForm() {
           placeholder="Enter your email"
           onChange={HandleInputChange}
           name="email"
-          // onChange={(event) => {
-          //   setFormData((prev) => ({ ...prev, email: event.target.value }));
-          // }}
         />
       </div>
 
