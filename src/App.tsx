@@ -1,9 +1,13 @@
 import { useState } from "react";
-import { Item } from "./components/Item";
+import Item from "./components/Item";
 import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
+
+  const fn = () => {
+    console.log("I am fn");
+  };
 
   return (
     <div className="w-screen h-screen flex justify-center items-center">
@@ -15,7 +19,7 @@ function App() {
         >
           Increment
         </button>
-        <Item />
+        <Item fun={fn} />
       </div>
     </div>
   );
