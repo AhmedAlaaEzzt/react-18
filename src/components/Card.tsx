@@ -1,8 +1,5 @@
-import { ReactNode } from "react";
-interface CardProps {
-  children: ReactNode;
-}
+import { PropsWithChildren } from "react";
 
-export const Card = ({ children }: CardProps) => {
+export const Card = ({ children }: PropsWithChildren) => {
   return <div className="border-2 p-2 rounded shadow-md">{children}</div>;
 };
