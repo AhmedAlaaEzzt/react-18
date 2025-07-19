@@ -1,3 +1,5 @@
+import { students } from "../utils/studentsData";
+
 export const Table = () => {
   return (
     <table>
@@ -10,12 +12,14 @@ export const Table = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Mohamed</td>
-          <td>30</td>
-          <td>Ahmed@gmail.com</td>
-          <td>MBA</td>
-        </tr>
+        {students.map(({ id, fullName, age, email, enrolledClass }) => (
+          <tr key={id}>
+            <td>{fullName}</td>
+            <td>{age}</td>
+            <td>{email}</td>
+            <td>{enrolledClass}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
