@@ -1,9 +1,9 @@
-import { Table } from "./components/Table";
+import { StudentTable } from "./components/StudentTable";
 
 function App() {
   return (
     <div className="w-screen h-screen flex justify-center items-center">
-      <Table />
+      <StudentTable />
     </div>
   );
 }
