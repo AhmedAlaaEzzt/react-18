@@ -1,4 +1,4 @@
-import { students } from "../utils/studentsData";
+import { students } from "@utils/studentsData";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
