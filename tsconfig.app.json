@@ -29,7 +29,6 @@
       "@utils/*": ["./src/utils/*"],
       "@interfaces/*": ["./src/interfaces/*"]
     }
-	
   },
   "include": ["src"]
 }

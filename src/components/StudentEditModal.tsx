@@ -10,7 +10,7 @@ import { StudentForm } from "./StudentForm";
 type StudentEditModalProps = DialogProps;
 
 export const StudentEditModal = (
-  studentEditModalProps: StudentEditModalProps
+  studentEditModalProps: StudentEditModalProps,
 ) => {
   return (
     <Dialog {...studentEditModalProps}>
