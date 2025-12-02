@@ -1,4 +1,6 @@
-export const students = [
+import { Student } from "@interfaces/student";
+
+export const students: Student[] = [
   {
     id: "1",
     fullName: "Ahmed Alaa",
