@@ -1,19 +1,23 @@
-import { useState } from "react";
-import { Box, Button, Stack } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import { StudentTable } from "@components/StudentTable";
-import { StudentEditModal } from "@components/StudentEditModal";
+import { useState } from "react"
+import { Box, Button, Stack } from "@mui/material"
+import AddIcon from "@mui/icons-material/Add"
+import { StudentTable } from "@components/StudentTable"
+import { StudentEditModal } from "@components/StudentEditModal"
 
 function App() {
-  const [isStudentEditOpen, setIsStudentEditOpen] = useState(false);
+  const [isStudentEditOpen, setIsStudentEditOpen] = useState(false)
 
   const handleClickOpen = () => {
-    setIsStudentEditOpen(true);
-  };
+    setIsStudentEditOpen(true)
+  }
 
   const handleClose = () => {
-    setIsStudentEditOpen(false);
-  };
+    setIsStudentEditOpen(false)
+  }
+  const handleSave = () => {
+    console.log("save")
+  }
+
   return (
     <>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -33,9 +37,10 @@ function App() {
         onClose={handleClose}
         fullWidth={true}
         maxWidth={"xs"}
+        onSave={handleSave}
       />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
