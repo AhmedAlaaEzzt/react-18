@@ -1,20 +1,26 @@
-import Button from "@mui/material/Button"
+import Button from "@mui/material/Button";
 
-import Dialog, { DialogProps } from "@mui/material/Dialog"
-import DialogActions from "@mui/material/DialogActions"
-import DialogContent from "@mui/material/DialogContent"
+import Dialog, { DialogProps } from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
 
-import DialogTitle from "@mui/material/DialogTitle"
-import { StudentForm } from "./StudentForm"
+import DialogTitle from "@mui/material/DialogTitle";
+import { StudentForm } from "./StudentForm";
 
 type StudentEditModalProps = DialogProps & {
-  onSave: () => void
-}
+  onSave: () => void;
+};
 
 export const StudentEditModal = (
-  studentEditModalProps: StudentEditModalProps,
+  studentEditModalProps: StudentEditModalProps
 ) => {
-  const { onSave, ...dialogProps } = studentEditModalProps
+  const { onSave, ...dialogProps } = studentEditModalProps;
+
+  const handleCancel = () => {
+    if (dialogProps.onClose) {
+      dialogProps.onClose({}, "backdropClick");
+    }
+  };
   return (
     <Dialog {...dialogProps}>
       <DialogTitle>Add a new student</DialogTitle>
@@ -22,10 +28,13 @@ export const StudentEditModal = (
         <StudentForm />
       </DialogContent>
       <DialogActions sx={{ px: 3, pb: 3 }}>
+        <Button onClick={handleCancel} variant="outlined">
+          Cancle
+        </Button>
         <Button onClick={onSave} variant="contained">
           Save
         </Button>
       </DialogActions>
     </Dialog>
-  )
-}
+  );
+};
