@@ -4,7 +4,7 @@ import { Stack } from "@mui/material";
 import { ChangeEvent } from "react";
 
 export const StudentForm = () => {
-  const handelChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.name, e.target.value);
   };
 
@@ -15,28 +15,28 @@ export const StudentForm = () => {
         id="full-name"
         label="Full Name"
         variant="outlined"
-        onChange={handelChange}
+        onChange={handleChange}
       />
       <TextField
         name="age"
         id="age"
         label="Age"
         variant="outlined"
-        onChange={handelChange}
+        onChange={handleChange}
       />
       <TextField
         name="email"
         id="email"
         label="Email"
         variant="outlined"
-        onChange={handelChange}
+        onChange={handleChange}
       />
       <TextField
         name="enrolledClass"
         id="class"
         label="Class"
         variant="outlined"
-        onChange={handelChange}
+        onChange={handleChange}
       />
     </Stack>
   );
