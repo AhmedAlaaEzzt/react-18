@@ -1,26 +1,16 @@
-import { useState } from "react";
+import { Student } from "@interfaces/student";
 import TextField from "@mui/material/TextField";
 
 import { Stack } from "@mui/material";
 import { ChangeEvent } from "react";
 
-export const StudentForm = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    age: "",
-    email: "",
-    enrolledClass: "",
-  });
+interface StudentFormProps {
+  formData: Omit<Student, "id">;
+  onHandleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
 
+export const StudentForm = ({ formData, onHandleChange }: StudentFormProps) => {
   const { fullName, age, email, enrolledClass } = formData;
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
 
   return (
     <Stack sx={{ pt: 1 }} direction={"column"} gap={2}>
@@ -30,7 +20,7 @@ export const StudentForm = () => {
         label="Full Name"
         variant="outlined"
         value={fullName}
-        onChange={handleChange}
+        onChange={onHandleChange}
       />
       <TextField
         name="age"
@@ -38,7 +28,7 @@ export const StudentForm = () => {
         label="Age"
         variant="outlined"
         value={age}
-        onChange={handleChange}
+        onChange={onHandleChange}
       />
       <TextField
         name="email"
@@ -46,7 +36,7 @@ export const StudentForm = () => {
         label="Email"
         variant="outlined"
         value={email}
-        onChange={handleChange}
+        onChange={onHandleChange}
       />
       <TextField
         name="enrolledClass"
@@ -54,7 +44,7 @@ export const StudentForm = () => {
         label="Class"
         variant="outlined"
         value={enrolledClass}
-        onChange={handleChange}
+        onChange={onHandleChange}
       />
     </Stack>
   );
