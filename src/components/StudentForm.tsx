@@ -1,11 +1,25 @@
+import { useState } from "react";
 import TextField from "@mui/material/TextField";
 
 import { Stack } from "@mui/material";
 import { ChangeEvent } from "react";
 
 export const StudentForm = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    age: "",
+    email: "",
+    enrolledClass: "",
+  });
+
+  const { fullName, age, email, enrolledClass } = formData;
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.name, e.target.value);
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   return (
@@ -15,6 +29,7 @@ export const StudentForm = () => {
         id="full-name"
         label="Full Name"
         variant="outlined"
+        value={fullName}
         onChange={handleChange}
       />
       <TextField
@@ -22,6 +37,7 @@ export const StudentForm = () => {
         id="age"
         label="Age"
         variant="outlined"
+        value={age}
         onChange={handleChange}
       />
       <TextField
@@ -29,6 +45,7 @@ export const StudentForm = () => {
         id="email"
         label="Email"
         variant="outlined"
+        value={email}
         onChange={handleChange}
       />
       <TextField
@@ -36,6 +53,7 @@ export const StudentForm = () => {
         id="class"
         label="Class"
         variant="outlined"
+        value={enrolledClass}
         onChange={handleChange}
       />
     </Stack>
