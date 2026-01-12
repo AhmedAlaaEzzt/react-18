@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import Button from "@mui/material/Button";
 
 import Dialog, { DialogProps } from "@mui/material/Dialog";
@@ -7,7 +7,6 @@ import DialogContent from "@mui/material/DialogContent";
 
 import DialogTitle from "@mui/material/DialogTitle";
 import { StudentForm } from "./StudentForm";
-import { ChangeEvent } from "react";
 
 const initialStudentState = {
   fullName: "",

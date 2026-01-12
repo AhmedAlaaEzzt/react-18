@@ -1,8 +1,8 @@
-import { Student } from "@interfaces/student";
 import TextField from "@mui/material/TextField";
 
 import { Stack } from "@mui/material";
 import { ChangeEvent } from "react";
+import { Student } from "@interfaces/student";
 
 interface StudentFormProps {
   formData: Omit<Student, "id">;
