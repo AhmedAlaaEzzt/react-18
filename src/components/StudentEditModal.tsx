@@ -17,12 +17,13 @@ const initialStudentState = {
 
 type StudentEditModalProps = DialogProps & {
   onSave: () => void;
+  onClose: () => void;
 };
 
 export const StudentEditModal = (
   studentEditModalProps: StudentEditModalProps
 ) => {
-  const { onSave, ...dialogProps } = studentEditModalProps;
+  const { onSave, onClose, ...dialogProps } = studentEditModalProps;
 
   const [formData, setFormData] = useState(initialStudentState);
 
@@ -32,9 +33,7 @@ export const StudentEditModal = (
   };
 
   const handleCancel = () => {
-    if (dialogProps.onClose) {
-      dialogProps.onClose({}, "backdropClick");
-    }
+    onClose();
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
