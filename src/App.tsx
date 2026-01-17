@@ -8,7 +8,7 @@ import { students as initialStudents } from "@utils/studentsData";
 
 function App() {
   const [isStudentEditOpen, setIsStudentEditOpen] = useState(false)
-  const [students] = useState<Student[]>(initialStudents)
+  const [students, setStudents] = useState<Student[]>(initialStudents)
 
   const handleClickOpen = () => {
     setIsStudentEditOpen(true)
@@ -18,7 +18,9 @@ function App() {
     setIsStudentEditOpen(false)
   }
   const handleSave = (newStudent: Omit<Student, "id">) => {
-    console.log("save", newStudent)
+    const id = crypto.randomUUID();
+    setStudents((prev) => [{ ...newStudent, id }, ...prev]);
+    handleClose();
   }
 
   return (
