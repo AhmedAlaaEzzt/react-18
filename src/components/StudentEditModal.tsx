@@ -5,8 +5,9 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import { StudentForm } from "./StudentForm";
+import { Student } from "@interfaces/student";
 
-const initialStudentState = {
+const initialStudentState: Omit<Student, "id"> = {
   fullName: "",
   age: "",
   email: "",
