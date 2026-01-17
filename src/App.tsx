@@ -4,9 +4,11 @@ import AddIcon from "@mui/icons-material/Add"
 import { StudentTable } from "@components/StudentTable"
 import { StudentEditModal } from "@components/StudentEditModal"
 import { Student } from "@interfaces/student"
+import { students as initialStudents } from "@utils/studentsData";
 
 function App() {
   const [isStudentEditOpen, setIsStudentEditOpen] = useState(false)
+  const [students] = useState<Student[]>(initialStudents)
 
   const handleClickOpen = () => {
     setIsStudentEditOpen(true)
@@ -31,7 +33,7 @@ function App() {
             Add Student
           </Button>
         </Stack>
-        <StudentTable />
+        <StudentTable students={students} />
       </Box>
       <StudentEditModal
         open={isStudentEditOpen}
