@@ -1,10 +1,8 @@
 import { useState, ChangeEvent } from "react";
 import Button from "@mui/material/Button";
-
 import Dialog, { DialogProps } from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-
 import DialogTitle from "@mui/material/DialogTitle";
 import { StudentForm } from "./StudentForm";
 
@@ -27,6 +25,14 @@ export const StudentEditModal = (
 
   const [formData, setFormData] = useState(initialStudentState);
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   const handleSave = () => {
     onSave();
     setFormData(initialStudentState);
@@ -36,13 +42,7 @@ export const StudentEditModal = (
     onClose();
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+
   return (
     <Dialog {...dialogProps}>
       <DialogTitle>Add a new student</DialogTitle>
@@ -51,7 +51,7 @@ export const StudentEditModal = (
       </DialogContent>
       <DialogActions sx={{ px: 3, pb: 3 }}>
         <Button onClick={handleCancel} variant="outlined">
-          Cancle
+          Cancel
         </Button>
         <Button onClick={handleSave} variant="contained">
           Save
