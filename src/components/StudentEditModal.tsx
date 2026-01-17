@@ -41,6 +41,7 @@ export const StudentEditModal = (
 
   const handleCancel = () => {
     onClose();
+    setFormData(initialStudentState);
   };
 
 
