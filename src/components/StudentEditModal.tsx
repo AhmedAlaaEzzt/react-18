@@ -15,7 +15,7 @@ const initialStudentState: Omit<Student, "id"> = {
 };
 
 type StudentEditModalProps = DialogProps & {
-  onSave: () => void;
+  onSave: (student: Omit<Student, "id">) => void;
   onClose: () => void;
 };
 
@@ -35,7 +35,7 @@ export const StudentEditModal = (
   };
 
   const handleSave = () => {
-    onSave();
+    onSave(formData);
     setFormData(initialStudentState);
   };
 

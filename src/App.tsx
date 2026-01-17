@@ -3,6 +3,7 @@ import { Box, Button, Stack } from "@mui/material"
 import AddIcon from "@mui/icons-material/Add"
 import { StudentTable } from "@components/StudentTable"
 import { StudentEditModal } from "@components/StudentEditModal"
+import { Student } from "@interfaces/student"
 
 function App() {
   const [isStudentEditOpen, setIsStudentEditOpen] = useState(false)
@@ -14,8 +15,8 @@ function App() {
   const handleClose = () => {
     setIsStudentEditOpen(false)
   }
-  const handleSave = () => {
-    console.log("save")
+  const handleSave = (newStudent: Omit<Student, "id">) => {
+    console.log("save", newStudent)
   }
 
   return (
