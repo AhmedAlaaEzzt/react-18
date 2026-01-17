@@ -45,7 +45,7 @@ export const StudentEditModal = (
 
 
   return (
-    <Dialog {...dialogProps}>
+    <Dialog onClose={handleCancel} {...dialogProps}>
       <DialogTitle>Add a new student</DialogTitle>
       <DialogContent>
         <StudentForm formData={formData} onHandleChange={handleChange} />
