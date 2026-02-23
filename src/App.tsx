@@ -1,27 +1,36 @@
-import { useState } from "react"
-import { Box, Button, Stack } from "@mui/material"
-import AddIcon from "@mui/icons-material/Add"
-import { StudentTable } from "@components/StudentTable"
-import { StudentEditModal } from "@components/StudentEditModal"
-import { Student } from "@interfaces/student"
-import { students as initialStudents } from "@utils/studentsData";
+import { useEffect, useState } from "react";
+import { Box, Button, Stack } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import { StudentTable } from "@components/StudentTable";
+import { StudentEditModal } from "@components/StudentEditModal";
+import { Student } from "@interfaces/student";
+import { fetchStudents } from "./api/students";
 
 function App() {
-  const [isStudentEditOpen, setIsStudentEditOpen] = useState(false)
-  const [students, setStudents] = useState<Student[]>(initialStudents)
+  const [isStudentEditOpen, setIsStudentEditOpen] = useState(false);
+  const [students, setStudents] = useState<Student[]>([]);
+
+  const getStudents = async () => {
+    const data = await fetchStudents();
+    setStudents(data);
+  };
+
+  useEffect(() => {
+    getStudents();
+  }, []);
 
   const handleClickOpen = () => {
-    setIsStudentEditOpen(true)
-  }
+    setIsStudentEditOpen(true);
+  };
 
   const handleClose = () => {
-    setIsStudentEditOpen(false)
-  }
+    setIsStudentEditOpen(false);
+  };
   const handleSave = (newStudent: Omit<Student, "id">) => {
     const id = crypto.randomUUID();
     setStudents((prev) => [{ ...newStudent, id }, ...prev]);
     handleClose();
-  }
+  };
 
   return (
     <>
@@ -45,7 +54,7 @@ function App() {
         onSave={handleSave}
       />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
